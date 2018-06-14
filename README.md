@@ -1,6 +1,12 @@
 # cycle-import-check
 
-Cycle import check tool
+[![CircleCI](https://circleci.com/gh/Soontao/cycle-import-check.svg?style=shield)](https://circleci.com/gh/Soontao/cycle-import-check)
+[![codecov](https://codecov.io/gh/Soontao/cycle-import-check/branch/master/graph/badge.svg)](https://codecov.io/gh/Soontao/cycle-import-check)
+[![npm version](https://badge.fury.io/js/cycle-import-check.svg)](https://badge.fury.io/js/cycle-import-check)
+[![GitHub top language](https://img.shields.io/github/languages/top/Soontao/cycle-import-check.svg)](https://github.com/Soontao/cycle-import-check)
+[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Soontao/cycle-import-check.svg)](https://github.com/Soontao/cycle-import-check)
+
+ES6 cycle import check tool
 
 ## Why ?
 
