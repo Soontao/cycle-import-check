@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "newLine": "LF",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "experimentalDecorators": true,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "module": "commonjs",
+    "target": "es6",
+    "moduleResolution": "node",
+    "charset": "utf-8",
+    "emitDecoratorMetadata": true,
+    "declaration": true,
+    "outDir": "lib",
+    "removeComments": false,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "typeAcquisition": {
+    "include": [
+      "node"
+    ]
+  },
+  "files": [
+    "src/cli/index.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

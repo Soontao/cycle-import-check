@@ -1,0 +1,9 @@
+{
+    "rules": {
+        "quotes": [
+            2,
+            "backtick",
+            "single"
+        ]
+    }
+}
