@@ -1,4 +1,4 @@
-import { map, concat } from "lodash";
+import { reduce, concat, map } from "lodash";
 import { resolveFilePath } from "./file";
 import { FileImportDescription } from "./type";
 
@@ -13,10 +13,19 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
   const lines = fileCodeString.match(/[import|export].*?["|'](.*?)["|']/g)
   if (lines) {
     const imports = map(lines, line => /[import|export].*?["|'](.*?)["|']/g.exec(line)[1])
-    const importsAbsPath: FileImportDescription[] = map(imports, i => ({
-      fromFile: fileAbsolutePath,
-      importFile: resolveFilePath(fileAbsolutePath, i)
-    }))
+    const importsAbsPath: FileImportDescription[] = reduce(imports, (pre, i) => {
+      const importFile = resolveFilePath(fileAbsolutePath, i)
+      // ignore node_module import
+      if (importFile) {
+        return concat(pre, {
+          fromFile: fileAbsolutePath,
+          importFile
+        })
+      } else {
+        return pre;
+      }
+
+    }, [])
     result = concat(result, importsAbsPath)
   }
   return result;

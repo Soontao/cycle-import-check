@@ -21,10 +21,4 @@ describe('processor tests', () => {
     expect(imports).toEqual(expected)
   })
 
-  test('should throw error import no-exist file', () => {
-    expect(() => {
-      findFileDependencies(testfile2AbsPath, 'import "./whatvever.js"')
-    }).toThrowError();
-  })
-
 })

@@ -19,3 +19,24 @@ npm i -g cycle-import-check
 ```bash
 iscan -d [a directory path]
 ```
+
+## result 
+
+```bash
+Import cycle founded in tests\testproject\
+
+cycle 0
+  tests\testproject\testfile5.ts
+  tests\testproject\d1\testfile.js
+
+cycle 1
+  tests\testproject\d2\d3\testfile3.js
+  tests\testproject\d2\d3\testfile4.js
+  tests\testproject\d2\d3\d4\testfile6.js
+```
+
+or
+
+```bash
+No import cycle founded in tests\testproject\node_modules\
+```

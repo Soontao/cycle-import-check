@@ -1,29 +1,36 @@
 #!/usr/bin/env node
 
-import { parse } from "cli";
-import { cwd, exit } from "process";
+import "colors"
+import { cwd, exit, argv } from "process";
 import { error, log } from "console";
 import { forEach } from "lodash";
 import { scanDirectoryWithResult } from "./scanner";
-import { join } from "path";
+import { join, isAbsolute } from "path";
+import { absPathesToRelativePathes } from "./file";
 
 const wordspaceDir = cwd();
 
-const options = parse({
-  "directory": ["d", "scaned directory", "string"]
-})
+var directory = argv[2]
 
-const result = scanDirectoryWithResult(join(wordspaceDir, options.directory))
+if (!directory) {
+  error("please give out the scan directory".red)
+  exit(1)
+}
+
+if (!isAbsolute(directory)) {
+  directory = join(wordspaceDir, directory)
+}
+
+const result = scanDirectoryWithResult(directory)
 
 if (result.haveCycle) {
-  error(`Import cycle founded in ${options.directory}`)
+  error(`Import cycle founded in ${directory}`.red)
   forEach(result.cyclies, (cycle, index) => {
-    error(`cycle ${index}`)
-    forEach(cycle, error)
-    error("\n")
+    error(`\ncycle ${index}`)
+    forEach(absPathesToRelativePathes(cycle), c => error(`  ${c}`.red))
   })
   exit(1)
 } else {
-  log(`No import cycle founded in ${options.directory}`)
+  log(`No import cycle founded in ${directory}`.green)
   exit(0)
 }

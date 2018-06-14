@@ -5,6 +5,11 @@ import { join as arrayJoin, map } from "lodash";
 import { readFileSync } from "fs";
 import { cwd } from "process";
 
+require.extensions[".ts"] = require.extensions[".js"]
+require.extensions[".jsx"] = require.extensions[".js"]
+require.extensions[".tsx"] = require.extensions[".js"]
+require.extensions[".mjs"] = require.extensions[".js"]
+
 const { resolve } = require
 
 export const listAllFile = (dir: string, ext: Extension[] = []) => {
@@ -32,7 +37,8 @@ export const resolveFilePath = (fromFileAbsolutePath: string, importFileRelative
   try {
     return normalize(resolve(targetPath));
   } catch (error) {
-    throw new Error(`Cannot find module ${targetPath}`)
+    // can not resolve import file
+    return ""
   }
 }
 
