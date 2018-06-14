@@ -1,40 +1,24 @@
 import { map, concat } from "lodash";
 import { resolveFilePath } from "./file";
+import { FileImportDescription } from "./type";
 
 /**
+ * findFileDependencies
  * 
  * @param fileAbsolutePath 
  * @param fileCodeString 
  */
-export const findImportDependency = (fileAbsolutePath: string, fileCodeString: string) => {
-  var result: string[] = []
-  const lines = fileCodeString.match(/import.*?["|'](.*?)["|']/g)
+export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
+  var result: FileImportDescription[] = []
+  const lines = fileCodeString.match(/[import|export].*?["|'](.*?)["|']/g)
   if (lines) {
-    const imports = map(lines, line => /import.*?["|'](.*?)["|']/g.exec(line)[1])
-    const importsAbsPath = map(imports, i => resolveFilePath(fileAbsolutePath, i))
+    const imports = map(lines, line => /[import|export].*?["|'](.*?)["|']/g.exec(line)[1])
+    const importsAbsPath: FileImportDescription[] = map(imports, i => ({
+      fromFile: fileAbsolutePath,
+      importFile: resolveFilePath(fileAbsolutePath, i)
+    }))
     result = concat(result, importsAbsPath)
   }
   return result;
 }
 
-/**
- * 
- * @param fileAbsolutePath 
- * @param fileCodeString 
- */
-export const findExportDependency = (fileAbsolutePath: string, fileCodeString: string) => {
-  const result: string[] = []
-
-  return result;
-}
-
-/**
- * 
- * @param fileAbsolutePath 
- * @param fileCodeString 
- */
-export const findAllDependency = (fileAbsolutePath: string, fileCodeString: string) => {
-  const result: string[] = []
-
-  return result;
-}
