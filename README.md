@@ -6,6 +6,8 @@
 
 ES6 cycle import check tool, support js, ts, jsx, tsx and mjs, will ignore all `node_modules` files.
 
+Not support `require` function in this version.
+
 ## Why ?
 
 In javascript ES6 standard, people use `import` & `export` keyword in modules, but if js files cycle import each other, some exported objects will be `undefined` in runtime.
@@ -56,9 +58,11 @@ delay 200ms, value2 in file1: value2
 
 ```
 
-If we only have two documents, this is a good judgment. 
+If we only have two js files, it's easy to determine if the file has a circular dependency.
 
-However, if we have a large project with thousands of files, it is difficult to determine whether there is a circular dependency between each file.
+However, if we have a large project with thousands of files, it's hard to do that.
+
+So, this tool appeared, using old (but efficient) graph algorithms to check for circular dependency.
 
 ## install
 
