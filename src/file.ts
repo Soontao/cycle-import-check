@@ -42,6 +42,10 @@ export const resolveFilePath = (fromFileAbsolutePath: string, importFileRelative
   }
 }
 
-export const absPathesToRelativePathes = (pathes: string[]) => {
+/**
+ * map absolute path to relative path
+ * @param pathes 
+ */
+export const mapAbsPathesToRelPathes = (pathes: string[]) => {
   return map(pathes, p => relative(cwd(), p))
 }

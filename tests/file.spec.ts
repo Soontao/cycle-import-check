@@ -1,4 +1,4 @@
-import { listAllFile, resolveFilePath, absPathesToRelativePathes } from "../src/file";
+import { listAllFile, resolveFilePath, mapAbsPathesToRelPathes } from "../src/file";
 import 'jest'
 import { testfile2AbsPath, testfile5AbsPath, fileAbsList, fileRelativeList } from "./test.base";
 
@@ -15,7 +15,7 @@ describe('file list & resolve tests', () => {
   })
 
   test('should file relative convert', () => {
-    const r = absPathesToRelativePathes(fileAbsList)
+    const r = mapAbsPathesToRelPathes(fileAbsList)
     expect(r).toEqual(fileRelativeList)
   })
 

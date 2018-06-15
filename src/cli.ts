@@ -6,7 +6,7 @@ import { error, log } from "console";
 import { forEach } from "lodash";
 import { scanDirectoryWithResult } from "./scanner";
 import { join, isAbsolute } from "path";
-import { absPathesToRelativePathes } from "./file";
+import { mapAbsPathesToRelPathes } from "./file";
 
 const wordspaceDir = cwd();
 
@@ -23,12 +23,11 @@ if (!isAbsolute(directory)) {
 const result = scanDirectoryWithResult(directory)
 
 if (result.haveCycle) {
-  error(`Import cycle founded in ${directory}`.red)
+  error(`Circular dependency existed in ${directory}`.red)
   forEach(result.cyclies, (cycle, index) => {
     error(`\ncycle ${index + 1}, size (${cycle.length}):\n`)
-    forEach(absPathesToRelativePathes(cycle), c => error(`  ${c}`.red))
+    forEach(mapAbsPathesToRelPathes(cycle), c => error(`  ${c}`.red))
   })
-  error("\n")
   exit(1)
 } else {
   log(`Congratulation, no import cycle founded in ${directory}`.green)
