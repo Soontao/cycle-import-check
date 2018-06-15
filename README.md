@@ -4,7 +4,7 @@
 [![codecov](https://codecov.io/gh/Soontao/cycle-import-check/branch/master/graph/badge.svg)](https://codecov.io/gh/Soontao/cycle-import-check)
 [![npm version](https://badge.fury.io/js/cycle-import-check.svg)](https://badge.fury.io/js/cycle-import-check)
 
-ES6 cycle import check tool, support js, ts, jsx, tsx and mjs, will ignore all `node_modules` files.
+ES6 cycle import check tool, support `js`, `ts`, `jsx`, `tsx` and `mjs` files, and will ignore all `node_modules` files.
 
 Not support `require` function in this version.
 
@@ -95,5 +95,5 @@ or
 ```text
 > iscan tests/testproject2
 
-Congratulation, no import cycle founded in tests/testproject2
+Congratulation! Not found circular dependency in tests/testproject2
 ```

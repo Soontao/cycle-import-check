@@ -30,6 +30,6 @@ if (result.haveCycle) {
   })
   exit(1)
 } else {
-  log(`Congratulation, no import cycle founded in ${directory}`.green)
+  log(`Congratulation! Not found circular dependency in ${directory}`.green)
   exit(0)
 }
