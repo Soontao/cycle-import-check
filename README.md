@@ -3,8 +3,6 @@
 [![CircleCI](https://circleci.com/gh/Soontao/cycle-import-check.svg?style=shield)](https://circleci.com/gh/Soontao/cycle-import-check)
 [![codecov](https://codecov.io/gh/Soontao/cycle-import-check/branch/master/graph/badge.svg)](https://codecov.io/gh/Soontao/cycle-import-check)
 [![npm version](https://badge.fury.io/js/cycle-import-check.svg)](https://badge.fury.io/js/cycle-import-check)
-[![GitHub top language](https://img.shields.io/github/languages/top/Soontao/cycle-import-check.svg)](https://github.com/Soontao/cycle-import-check)
-[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Soontao/cycle-import-check.svg)](https://github.com/Soontao/cycle-import-check)
 
 ES6 cycle import check tool
 
@@ -14,21 +12,21 @@ In Javascirpt ES6, we use `import` & `export` in modules, but if files cycle imp
 
 The best way is **one-way dependence**, and I wrote this tool to ensure no cycle-import in projects.
 
-## install 
+## install
 
 ```bash
 npm i -g cycle-import-check
 ```
 
-## usage 
+## usage
 
 ```bash
-iscan -d [a directory path]
+iscan [a directory path]
 ```
 
-## result 
+## result
 
-```bash
+```text
 Import cycle founded in tests\testproject\
 
 cycle 0
@@ -43,6 +41,6 @@ cycle 1
 
 or
 
-```bash
+```text
 No import cycle founded in tests\testproject\node_modules\
 ```

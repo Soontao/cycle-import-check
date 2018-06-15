@@ -1,5 +1,5 @@
 import "jest"
-import { scanDirectory } from "../src/scanner";
+import { scanDirectory, scanDirectoryWithResult } from "../src/scanner";
 import { join } from "path";
 import { testfile5AbsPath, testfile1AbsPath, testfile3AbsPath, testfile4AbsPath, testfile6AbsPath } from "./test.base";
 
@@ -20,5 +20,11 @@ describe('scanner related test', () => {
     ]
     expect(result).toEqual(expected_result)
   })
+
+  test('should not scan cycle import', () => {
+    const result = scanDirectoryWithResult(join(__dirname, "./testproject2"))
+    expect(result.haveCycle).toEqual(false)
+  })
+
 
 })
