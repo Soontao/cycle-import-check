@@ -79,6 +79,7 @@ iscan [a directory path]
 ## result
 
 ```text
+
 > iscan tests/testproject4
 
 Circular dependency existed in tests/testproject4
@@ -93,7 +94,9 @@ cycle 1, size (2):
 or
 
 ```text
+
 > iscan tests/testproject2
 
 Congratulation! Not found circular dependency in tests/testproject2
+
 ```
