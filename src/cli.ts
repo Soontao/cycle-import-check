@@ -13,8 +13,7 @@ const wordspaceDir = cwd();
 var directory = argv[2]
 
 if (!directory) {
-  error("please give out the scan directory".red)
-  exit(1)
+  directory = "."
 }
 
 if (!isAbsolute(directory)) {
@@ -26,11 +25,12 @@ const result = scanDirectoryWithResult(directory)
 if (result.haveCycle) {
   error(`Import cycle founded in ${directory}`.red)
   forEach(result.cyclies, (cycle, index) => {
-    error(`\ncycle ${index}`)
+    error(`\ncycle ${index + 1}, size (${cycle.length}):\n`)
     forEach(absPathesToRelativePathes(cycle), c => error(`  ${c}`.red))
   })
+  error("\n")
   exit(1)
 } else {
-  log(`No import cycle founded in ${directory}`.green)
+  log(`Congratulation, no import cycle founded in ${directory}`.green)
   exit(0)
 }
