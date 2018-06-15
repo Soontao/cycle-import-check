@@ -1,4 +1,4 @@
-// from here, file2 is not really imported, no script runned
+// from here, file1 is not really imported, no script runned
 import { value1 } from "./file1"; 
 
 export const value2 = "value2"  
@@ -19,7 +19,7 @@ setTimeout(() => {
 
 // var _file = require("./file1");
 
-// var value2 = (exports.value2 = "value2"); // from here, file2 is not really imported, no script runned
+// var value2 = (exports.value2 = "value2"); // from here, file1 is not really imported, no script runned
 
 // console.log("value1 in file2: " + _file.value1); // value1 is undefined
 
