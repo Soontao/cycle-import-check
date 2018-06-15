@@ -4,11 +4,11 @@
 [![codecov](https://codecov.io/gh/Soontao/cycle-import-check/branch/master/graph/badge.svg)](https://codecov.io/gh/Soontao/cycle-import-check)
 [![npm version](https://badge.fury.io/js/cycle-import-check.svg)](https://badge.fury.io/js/cycle-import-check)
 
-ES6 cycle import check tool, suuport js, ts, jsx, tsx and mjs, will ignore all `node_modules` files.
+ES6 cycle import check tool, support js, ts, jsx, tsx and mjs, will ignore all `node_modules` files.
 
 ## Why ?
 
-In Javascirpt ES6, we use `import` & `export` in modules, but if files cycle import each other, some exported objects will be `undefined` in runtime.
+In javascript ES6 standard, people use `import` & `export` keyword in modules, but if js files cycle import each other, some exported objects will be `undefined` in runtime.
 
 The best practice is **one-way dependence**, and I wrote this tool to ensure no cycle-dependency in projects.
 
@@ -19,7 +19,7 @@ Let's look at a circular dependency example:
 file1.js
 
 ```javascript
-// file2 is really imported, all script runned
+// file2 is really imported, all script have run
 // and console will be first triggered in file2
 import { value2 } from "./file2"; 
 export const value1 = "value1"
@@ -35,7 +35,7 @@ setTimeout(() => {
 file2.js
 
 ```javascript
-// file1 is not really imported, no script runned
+// file1 is not really imported, no script run
 import { value1 } from "./file1"; 
 export const value2 = "value2"  
 // value1 is undefined
