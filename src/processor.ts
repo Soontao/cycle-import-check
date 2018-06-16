@@ -11,52 +11,58 @@ import { FileImportDescription } from "./type";
 export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
   return concat(
     findImportDependencies(fileAbsolutePath, fileCodeString),
-    findExportDependencies(fileAbsolutePath, fileCodeString)
+    findExportDependencies(fileAbsolutePath, fileCodeString),
   )
 }
 
 export const findImportDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
   var result: FileImportDescription[] = []
-  const lines = fileCodeString.match(/import.*?["|'](.*?)["|']/g)
-  if (lines) {
-    const imports = map(lines, line => /import.*?["|'](.*?)["|']/g.exec(line)[1])
-    const importsAbsPath: FileImportDescription[] = reduce(imports, (pre, i) => {
-      const importFile = resolveFilePath(fileAbsolutePath, i)
+  const importLines = fileCodeString.match(/import.*?["|'](.*?)["|']/g)
+  if (importLines) {
+    const imports: FileImportDescription[] = reduce(importLines, (pre, line) => {
+      const result = /import.*?["|'](.*?)["|']/.exec(line)
+      const importStatementCode = result[0]
+      const importRelativePath = result[1]
+      const importFile = resolveFilePath(fileAbsolutePath, importRelativePath)
       // ignore node_module import
       if (importFile) {
         return concat(pre, {
           fromFile: fileAbsolutePath,
-          importFile
+          importFile,
+          code: importStatementCode,
         })
       } else {
         return pre;
       }
-
     }, [])
-    result = concat(result, importsAbsPath)
+    result = concat(result, imports)
   }
   return result;
 }
 
 export const findExportDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
   var result: FileImportDescription[] = []
-  const lines = fileCodeString.match(/[export].*?from.*?["|'](.*?)["|']/g)
+  const lines = fileCodeString.match(/export.*?from.*?["|'](.*?)["|']/g)
   if (lines) {
-    const imports = map(lines, line => /[export].*?from.*?["|'](.*?)["|']/g.exec(line)[1])
-    const importsAbsPath: FileImportDescription[] = reduce(imports, (pre, i) => {
-      const importFile = resolveFilePath(fileAbsolutePath, i)
+    const exportsLines: FileImportDescription[] = reduce(lines, (pre, line) => {
+
+      const result = /export.*?from.*?["|'](.*?)["|']/.exec(line)
+      const exportStatementCode = result[0]
+      const exportRelativePath = result[1]
+
+      const importFile = resolveFilePath(fileAbsolutePath, exportRelativePath)
       // ignore node_module import
       if (importFile) {
         return concat(pre, {
           fromFile: fileAbsolutePath,
-          importFile
+          importFile,
+          code: exportStatementCode
         })
       } else {
         return pre;
       }
-
     }, [])
-    result = concat(result, importsAbsPath)
+    result = concat(result, exportsLines)
   }
   return result;
 }

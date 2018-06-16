@@ -10,10 +10,12 @@ describe('processor tests', () => {
     const imports = findFileDependencies(testfile2AbsPath, readFileSync(testfile2AbsPath, { encoding: "utf8" }))
     const expected: FileImportDescription[] = [
       {
+        code: 'import "./d3/d4/testfile6"',
         fromFile: testfile2AbsPath,
         importFile: testfile6AbsPath
       },
       {
+        code: 'import "d3/testfile3"',
         fromFile: testfile2AbsPath,
         importFile: testfile3AbsPath
       }
