@@ -3,7 +3,7 @@ import { forEach } from "lodash";
 import { FileImportDescription } from "./type";
 
 /**
- * caculate cycle import file
+ * calculate cycle import file
  * 
  * @param fileAbsPathes files absolutely path
  * @param imports each file's import
