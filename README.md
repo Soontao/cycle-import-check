@@ -64,6 +64,12 @@ However, if we have a large project with thousands of files, it's hard to do tha
 
 So, this tool appeared, using old (but efficient) graph algorithms to check for circular dependency.
 
+## How to resolve circular dependenncy ?
+
+Just a image: 
+
+![](https://on-img.com/chart_image/5b24823de4b0253961805fdf.png)
+
 ## install
 
 ```bash
