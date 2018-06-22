@@ -4,8 +4,14 @@
  */
 export type Extension = "js" | "ts" | "tsx" | "jsx" | "mjs"
 
+/**
+ * circular dependent files
+ */
 export type Cycle = string[];
 
+/**
+ * A description about one file 'imported' another module file
+ */
 export interface FileImportDescription {
   /**
    * the file import other file
@@ -21,6 +27,9 @@ export interface FileImportDescription {
   code?: string;
 }
 
+/**
+ * tool's scna result
+ */
 export interface ScanResult {
   /**
    * wether these files have cycle dependency
@@ -31,10 +40,19 @@ export interface ScanResult {
   imports?: FileImportDescription[];
 }
 
+/**
+ * report view object, for report view
+ */
 export interface ReportVO {
+  /**
+   * scnaed files
+   */
   nodes: {
     name: string
   }[];
+  /**
+   * files' deps
+   */
   links: {
     source: string;
     target: string;

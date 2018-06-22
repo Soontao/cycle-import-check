@@ -14,6 +14,12 @@ require.extensions[".mjs"] = require.extensions[".js"]
 
 const { resolve } = require
 
+/**
+ * list all accpetable files in a specific directory
+ * 
+ * @param dir 
+ * @param ext 
+ */
 export const listAllFile = (dir: string, ext: Extension[] = []) => {
   return sync(pathJoin(dir, `./**/*.{${arrayJoin(ext, ",")}}`), {
     realpath: true,
@@ -23,6 +29,11 @@ export const listAllFile = (dir: string, ext: Extension[] = []) => {
   })
 }
 
+/**
+ * read file content
+ * 
+ * @param absolutePath 
+ */
 export const readFile = (absolutePath: string) => {
   return readFileSync(absolutePath, { encoding: "utf8" })
 }
@@ -46,6 +57,7 @@ export const resolveFilePath = (fromFileAbsolutePath: string, importFileRelative
 
 /**
  * map absolute path to relative path
+ * 
  * @param pathes 
  */
 export const mapAbsPathesToRelPathes = (pathes: string | string[]): string | string[] => {

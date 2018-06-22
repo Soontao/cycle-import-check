@@ -16,6 +16,12 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
   )
 }
 
+/**
+ * for find require() function dependencies
+ * 
+ * @param fileAbsolutePath 
+ * @param fileCodeString 
+ */
 export const findRequireDependecies = (fileAbsolutePath: string, fileCodeString: string) => {
   var result: FileImportDescription[] = [];
   const requireStatements = fileCodeString.match(/require\(['|"](.*?)['|"]\)/g);
@@ -40,6 +46,12 @@ export const findRequireDependecies = (fileAbsolutePath: string, fileCodeString:
   return result;
 }
 
+/**
+ * for find import keyword denpendencies
+ * 
+ * @param fileAbsolutePath 
+ * @param fileCodeString 
+ */
 export const findImportDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
   var result: FileImportDescription[] = []
   const importLines = fileCodeString.match(/import.*?["|'](.*?)["|']/g)
@@ -65,6 +77,12 @@ export const findImportDependencies = (fileAbsolutePath: string, fileCodeString:
   return result;
 }
 
+/**
+ * for find export keyword dependencies
+ * 
+ * @param fileAbsolutePath 
+ * @param fileCodeString 
+ */
 export const findExportDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
   var result: FileImportDescription[] = []
   const lines = fileCodeString.match(/export.*?from.*?["|'](.*?)["|']/g)
