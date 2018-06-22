@@ -6,15 +6,15 @@
 
 ES6 cycle import check tool, support `js`, `ts`, `jsx`, `tsx` and `mjs` files, and will ignore all `node_modules` files.
 
-Not support `require` function in this version.
+Support `import`, `export` keywords and `require()` function now
 
-## Why ?
+## Why do we need this tool ?
 
 In javascript ES6 standard, people use `import` & `export` keyword in modules, but if js files cycle import each other, some exported objects will be `undefined` in runtime.
 
 The best practice is **one-way dependence**, and I wrote this tool to ensure no cycle-dependency in projects.
 
-## Cycle dependency sample
+## Circular dependency sample project
 
 Let's look at a circular dependency example: 
 
@@ -68,7 +68,7 @@ So, this tool appeared, using old (but efficient) graph algorithms to check for 
 
 Just a image: 
 
-![](https://on-img.com/chart_image/5b24823de4b0253961805fdf.png)
+![](https://on-img.com/chart_image/5b24823de4b0253961805fdf.png?date=1529668024274)
 
 ## install
 

@@ -12,7 +12,32 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
   return concat(
     findImportDependencies(fileAbsolutePath, fileCodeString),
     findExportDependencies(fileAbsolutePath, fileCodeString),
+    findRequireDependecies(fileAbsolutePath, fileCodeString),
   )
+}
+
+export const findRequireDependecies = (fileAbsolutePath: string, fileCodeString: string) => {
+  var result: FileImportDescription[] = [];
+  const requireStatements = fileCodeString.match(/require\(['|"](.*?)['|"]\)/g);
+  if (requireStatements) {
+    const requires = reduce(requireStatements, (pre, line) => {
+      const regResult = /require\(['|"](.*?)['|"]\)/.exec(line);
+      const requireCode = regResult[0]
+      const requireRelativePath = regResult[1];
+      const requireFile = resolveFilePath(fileAbsolutePath, requireRelativePath);
+      if (requireFile) {
+        return concat(pre, {
+          fromFile: fileAbsolutePath,
+          importFile: requireFile,
+          code: requireCode,
+        })
+      } else {
+        return pre
+      }
+    }, [])
+    result = concat(result, requires)
+  }
+  return result;
 }
 
 export const findImportDependencies = (fileAbsolutePath: string, fileCodeString: string) => {

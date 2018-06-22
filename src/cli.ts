@@ -30,6 +30,6 @@ if (result.haveCycle) {
   })
   exit(1)
 } else {
-  log(`Congratulation! Not found circular dependency in ${directory}`.green)
+  log(`Not found circular dependency in ${mapAbsPathesToRelPathes(directory)}`.green)
   exit(0)
 }
