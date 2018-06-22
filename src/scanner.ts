@@ -15,6 +15,11 @@ export const scanDirectory = (directory: string) => {
   return calculateCycleImport(filepathes, fileImports)
 }
 
+/**
+ * scan a directory circular dependecy status
+ * 
+ * @param directory 
+ */
 export const scanDirectoryWithResult = (directory: string): ScanResult => {
   const filepathes = listAllFile(directory, ["js", "jsx", "ts", "tsx", "mjs"])
   const filesContents = map(filepathes, filepath => ({ filepath, content: readFile(filepath) }))
