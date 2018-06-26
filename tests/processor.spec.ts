@@ -1,6 +1,6 @@
 import 'jest'
 import { testfile2AbsPath, testfile6AbsPath, testfile3AbsPath } from "./test.base";
-import { findFileDependencies, findRequireDependecies } from "../src/processor";
+import { findFileDependencies, findRequireDependencies } from "../src/processor";
 import { readFileSync } from "fs";
 import { FileImportDescription } from '../src/type';
 import { join } from 'path';
@@ -27,7 +27,7 @@ describe('processor tests', () => {
   test('should view require files path', () => {
     const Proj5File1AbsPath = join(__dirname, "./testproject5/file1.js")
     const Proj5File2AbsPath = join(__dirname, "./testproject5/file2.js")
-    const deps = findRequireDependecies(Proj5File1AbsPath, readFileSync(Proj5File1AbsPath, { encoding: "utf8" }))
+    const deps = findRequireDependencies(Proj5File1AbsPath, readFileSync(Proj5File1AbsPath, { encoding: "utf8" }))
     expect(deps).toEqual([
       {
         fromFile: Proj5File1AbsPath,

@@ -8,7 +8,7 @@ import { scanDirectoryWithResult } from "./scanner";
 import { join, isAbsolute } from "path";
 import { mapAbsPathesToRelPathes } from "./file";
 
-const wordspaceDir = cwd();
+const workspaceDir = cwd();
 
 var directory = argv[2]
 
@@ -17,7 +17,7 @@ if (!directory) {
 }
 
 if (!isAbsolute(directory)) {
-  directory = join(wordspaceDir, directory)
+  directory = join(workspaceDir, directory)
 }
 
 const result = scanDirectoryWithResult(directory)

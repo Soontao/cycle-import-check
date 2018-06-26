@@ -1,6 +1,6 @@
 {
   "name": "cycle-import-check",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "ES6 circular deppendency check tool, support js, ts, jsx, tsx and mjs files",
   "main": "./lib/api.js",
   "bin": {
@@ -16,7 +16,6 @@
     "@types/uuid": "^3.4.3",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.0",
-    "nsp": "^2.6.3",
     "pre-commit": "^1.2.2",
     "rimraf": "^2.6.1",
     "standard-version": "^4.2.0",
@@ -40,6 +39,7 @@
   "dependencies": {
     "cli": "^1.0.1",
     "colors": "^1.3.0",
+    "find-package-json": "^1.1.0",
     "glob": "^7.1.2",
     "graphlib": "^2.1.5",
     "lodash": "^4.17.5",
@@ -70,6 +70,10 @@
     "name": "Theo Sun",
     "email": "theo.sun@sap.com",
     "url": "https://github.com/Soontao"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Soontao/cycle-import-check"
   },
   "license": "MIT"
 }

@@ -1,19 +1,8 @@
-import { listAllFile, readFile } from "./file";
+import { listAllFile, readFile, allDependencies, filterNodeDependenciesImport } from "./file";
 import { map, reduce, concat } from "lodash";
 import { findFileDependencies } from "./processor";
 import { calculateCycleImport } from "./graph";
 import { ScanResult } from "./type";
-
-export const scanDirectory = (directory: string) => {
-  const filepathes = listAllFile(directory, ["js", "jsx", "ts", "tsx", "mjs"])
-  const filesContents = map(filepathes, filepath => ({ filepath, content: readFile(filepath) }))
-  const fileImports = reduce(
-    filesContents,
-    (pre, file) => concat(pre, findFileDependencies(file.filepath, file.content)),
-    []
-  )
-  return calculateCycleImport(filepathes, fileImports)
-}
 
 /**
  * scan a directory circular dependecy status
@@ -21,27 +10,28 @@ export const scanDirectory = (directory: string) => {
  * @param directory 
  */
 export const scanDirectoryWithResult = (directory: string): ScanResult => {
+  const nodeDependencies = allDependencies(directory)
   const filepathes = listAllFile(directory, ["js", "jsx", "ts", "tsx", "mjs"])
   const filesContents = map(filepathes, filepath => ({ filepath, content: readFile(filepath) }))
-  const fileImports = reduce(
+  const filteredImports = reduce(
     filesContents,
-    (pre, file) => concat(pre, findFileDependencies(file.filepath, file.content)),
+    (pre, file) => concat(pre, filterNodeDependenciesImport(findFileDependencies(file.filepath, file.content), nodeDependencies)),
     []
   )
-  const result = calculateCycleImport(filepathes, fileImports)
+  const result = calculateCycleImport(filepathes, filteredImports)
   if (result && result.length > 0) {
     return {
       haveCycle: true,
       cyclies: result,
       nodes: filepathes,
-      imports: fileImports,
+      imports: filteredImports,
     }
   } else {
     return {
       haveCycle: false,
       cyclies: [],
       nodes: filepathes,
-      imports: fileImports,
+      imports: filteredImports,
     }
   }
 }

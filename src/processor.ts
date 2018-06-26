@@ -12,7 +12,7 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
   return concat(
     findImportDependencies(fileAbsolutePath, fileCodeString),
     findExportDependencies(fileAbsolutePath, fileCodeString),
-    findRequireDependecies(fileAbsolutePath, fileCodeString),
+    findRequireDependencies(fileAbsolutePath, fileCodeString),
   )
 }
 
@@ -22,7 +22,7 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
  * @param fileAbsolutePath 
  * @param fileCodeString 
  */
-export const findRequireDependecies = (fileAbsolutePath: string, fileCodeString: string) => {
+export const findRequireDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
   var result: FileImportDescription[] = [];
   const requireStatements = fileCodeString.match(/require\(['|"](.*?)['|"]\)/g);
   if (requireStatements) {

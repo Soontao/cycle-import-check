@@ -1,7 +1,7 @@
-import { Extension, ScanResult, ReportVO } from "./type";
+import { Extension, ScanResult, ReportVO, PackageJson, FileImportDescription } from "./type";
 import { sync } from "glob";
 import { join as pathJoin, dirname, join, normalize, relative } from "path";
-import { join as arrayJoin, map, isArray, isString } from "lodash";
+import { join as arrayJoin, map, isArray, isString, concat, includes, filter } from "lodash";
 import { readFileSync, writeFileSync } from "fs";
 import { cwd } from "process";
 import { tmpdir, platform } from "os";
@@ -14,8 +14,36 @@ require.extensions[".mjs"] = require.extensions[".js"]
 
 const { resolve } = require
 
+export const allDependencies = (absPath: string) => {
+  return concatAllDependencies(findProjectPackageJson(absPath))
+}
+
+export const concatAllDependencies = (json: PackageJson): string[] => {
+  const { dependencies, devDependencies, peerDependencies } = json;
+  var rt = [];
+  if (dependencies) {
+    rt = concat(rt, dependencies)
+  }
+  if (devDependencies) {
+    rt = concat(rt, devDependencies)
+  }
+  if (peerDependencies) {
+    rt = concat(rt, peerDependencies)
+  }
+  return rt;
+}
+
+export const findProjectPackageJson = (absPath: string): PackageJson => {
+  const finder = require("find-package-json")(absPath)
+  return finder.next().value;
+}
+
+export const filterNodeDependenciesImport = (descriptions: FileImportDescription[], dependencies: string[]) => {
+  return filter(descriptions, i => !includes(dependencies, i.importFile))
+}
+
 /**
- * list all accpetable files in a specific directory
+ * list all acceptable files in a specific directory
  * 
  * @param dir 
  * @param ext 

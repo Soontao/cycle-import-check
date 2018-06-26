@@ -1,5 +1,14 @@
 
 /**
+ * package.json type
+ */
+export interface PackageJson {
+  name: string;
+  dependencies: { [depName: string]: string };
+  devDependencies: { [devDepName: string]: string };
+  peerDependencies: { [peerDepName: string]: string };
+}
+/**
  * allowed file extensions
  */
 export type Extension = "js" | "ts" | "tsx" | "jsx" | "mjs"
