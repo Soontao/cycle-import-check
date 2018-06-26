@@ -1,7 +1,7 @@
 import { Extension, ScanResult, ReportVO, PackageJson, FileImportDescription } from "./type";
 import { sync } from "glob";
 import { join as pathJoin, dirname, join, normalize, relative } from "path";
-import { join as arrayJoin, map, isArray, isString, concat, includes, filter } from "lodash";
+import { join as arrayJoin, map, isArray, isString, concat, includes, filter, keys } from "lodash";
 import { readFileSync, writeFileSync } from "fs";
 import { cwd } from "process";
 import { tmpdir, platform } from "os";
@@ -22,13 +22,13 @@ export const concatAllDependencies = (json: PackageJson): string[] => {
   const { dependencies, devDependencies, peerDependencies } = json;
   var rt = [];
   if (dependencies) {
-    rt = concat(rt, dependencies)
+    rt = concat(rt, keys(dependencies))
   }
   if (devDependencies) {
-    rt = concat(rt, devDependencies)
+    rt = concat(rt, keys(devDependencies))
   }
   if (peerDependencies) {
-    rt = concat(rt, peerDependencies)
+    rt = concat(rt, keys(peerDependencies))
   }
   return rt;
 }
