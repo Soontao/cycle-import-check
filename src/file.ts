@@ -19,18 +19,23 @@ export const allDependencies = (absPath: string) => {
 }
 
 export const concatAllDependencies = (json: PackageJson): string[] => {
-  const { dependencies, devDependencies, peerDependencies } = json;
-  var rt = [];
-  if (dependencies) {
-    rt = concat(rt, keys(dependencies))
+  try {
+    const { dependencies, devDependencies, peerDependencies } = json;
+    var rt = [];
+    if (dependencies) {
+      rt = concat(rt, keys(dependencies))
+    }
+    if (devDependencies) {
+      rt = concat(rt, keys(devDependencies))
+    }
+    if (peerDependencies) {
+      rt = concat(rt, keys(peerDependencies))
+    }
+    return rt;
+  } catch (error) {
+    throw new Error("please run cycle-import-check in npm project (with project.json)")
   }
-  if (devDependencies) {
-    rt = concat(rt, keys(devDependencies))
-  }
-  if (peerDependencies) {
-    rt = concat(rt, keys(peerDependencies))
-  }
-  return rt;
+
 }
 
 export const findProjectPackageJson = (absPath: string): PackageJson => {
