@@ -68,7 +68,7 @@ So, this tool appeared, using old (but efficient) graph algorithms to check for 
 
 Just a image: 
 
-![](https://on-img.com/chart_image/5b24823de4b0253961805fdf.png?date=1529668024274)
+![](http://on-img.com/chart_image/5b24823de4b0253961805fdf.png)
 
 ## install
 
