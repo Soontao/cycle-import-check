@@ -1,7 +1,6 @@
 # ![](https://res.cloudinary.com/digf90pwi/image/upload/c_scale,w_68/v1529163036/cycle_bscatc.png) JS module circular dependency check tool
 
 [![CircleCI](https://circleci.com/gh/Soontao/cycle-import-check.svg?style=shield)](https://circleci.com/gh/Soontao/cycle-import-check)
-![Node CI](https://github.com/Soontao/cycle-import-check/workflows/Node%20CI/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/Soontao/cycle-import-check/branch/master/graph/badge.svg)](https://codecov.io/gh/Soontao/cycle-import-check)
 [![npm version](https://badge.fury.io/js/cycle-import-check.svg)](https://badge.fury.io/js/cycle-import-check)
 
