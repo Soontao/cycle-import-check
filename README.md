@@ -12,7 +12,7 @@ Support `import`, `export` keywords and `require()` function now
 
 In javascript ES6 standard, people use `import` & `export` keyword in modules, but if js files cycle import each other, some exported objects will be `undefined` in runtime.
 
-The best practice is **one-way dependence**, and I wrote this tool to ensure no cycle-dependency in projects.
+The best practice is **one-way dependency**, and I wrote this tool to ensure no cycle-dependency in projects.
 
 ## Circular dependency sample project
 
@@ -66,9 +66,9 @@ So, this tool appeared, using old (but efficient) graph algorithms to check for 
 
 ## How to resolve circular dependenncy ?
 
-Just a image: 
+Just extract shared variables/functions into an independent file: 
 
-![](http://on-img.com/chart_image/5b24823de4b0253961805fdf.png)
+![](https://res.cloudinary.com/digf90pwi/image/upload/v1582207712/cycle-import-check_ljrcxg.png)
 
 ## install
 
