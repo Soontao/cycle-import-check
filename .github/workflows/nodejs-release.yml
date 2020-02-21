@@ -21,11 +21,10 @@ jobs:
       run: |
         npm ci
         npm test
-        npm run build
       env:
         CI: true
     
     - name: npm auth & publish
-      run: npm run ts:build && npm publish
+      run: npm run build && npm publish
       env:
         NODE_AUTH_TOKEN: ${{secrets.Z_NPM_TOKEN}}
