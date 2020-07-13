@@ -17,7 +17,7 @@
     "jest": "^25",
     "pre-commit": "^1.2.2",
     "rimraf": "^2.6.1",
-    "standard-version": "^7.1.0",
+    "standard-version": "^8.0.1",
     "ts-jest": "^25",
     "ts-loader": "^2.3.3",
     "tslint": "^5.6.0",
