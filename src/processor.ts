@@ -1,12 +1,12 @@
-import { reduce, concat, map } from "lodash";
+import { reduce, concat } from "@newdash/newdash";
 import { resolveFilePath } from "./file";
 import { FileImportDescription } from "./type";
 
 /**
  * findFileDependencies
- * 
- * @param fileAbsolutePath 
- * @param fileCodeString 
+ *
+ * @param fileAbsolutePath
+ * @param fileCodeString
  */
 export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
   return concat(
@@ -18,9 +18,9 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
 
 /**
  * for find require() function dependencies
- * 
- * @param fileAbsolutePath 
- * @param fileCodeString 
+ *
+ * @param fileAbsolutePath
+ * @param fileCodeString
  */
 export const findRequireDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
   var result: FileImportDescription[] = [];
@@ -32,11 +32,8 @@ export const findRequireDependencies = (fileAbsolutePath: string, fileCodeString
       const requireRelativePath = regResult[1];
       const requireFile = resolveFilePath(fileAbsolutePath, requireRelativePath);
       if (requireFile) {
-        return concat(pre, {
-          fromFile: fileAbsolutePath,
-          importFile: requireFile,
-          code: requireCode,
-        })
+        // @ts-ignore
+        return concat(pre, { fromFile: fileAbsolutePath, importFile: requireFile, code: requireCode, })
       } else {
         return pre
       }
@@ -48,9 +45,9 @@ export const findRequireDependencies = (fileAbsolutePath: string, fileCodeString
 
 /**
  * for find import keyword denpendencies
- * 
- * @param fileAbsolutePath 
- * @param fileCodeString 
+ *
+ * @param fileAbsolutePath
+ * @param fileCodeString
  */
 export const findImportDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
   var result: FileImportDescription[] = []
@@ -63,11 +60,8 @@ export const findImportDependencies = (fileAbsolutePath: string, fileCodeString:
       const importFile = resolveFilePath(fileAbsolutePath, importRelativePath)
       // ignore node_module import
       if (importFile) {
-        return concat(pre, {
-          fromFile: fileAbsolutePath,
-          importFile,
-          code: importStatementCode,
-        })
+        // @ts-ignore
+        return concat(pre, { fromFile: fileAbsolutePath, importFile, code: importStatementCode, })
       } else {
         return pre;
       }
@@ -79,9 +73,9 @@ export const findImportDependencies = (fileAbsolutePath: string, fileCodeString:
 
 /**
  * for find export keyword dependencies
- * 
- * @param fileAbsolutePath 
- * @param fileCodeString 
+ *
+ * @param fileAbsolutePath
+ * @param fileCodeString
  */
 export const findExportDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
   var result: FileImportDescription[] = []
@@ -96,11 +90,8 @@ export const findExportDependencies = (fileAbsolutePath: string, fileCodeString:
       const importFile = resolveFilePath(fileAbsolutePath, exportRelativePath)
       // ignore node_module import
       if (importFile) {
-        return concat(pre, {
-          fromFile: fileAbsolutePath,
-          importFile,
-          code: exportStatementCode
-        })
+        // @ts-ignore
+        return concat(pre, { fromFile: fileAbsolutePath, importFile, code: exportStatementCode })
       } else {
         return pre;
       }

@@ -1,28 +1,36 @@
 {
   "name": "cycle-import-check",
   "version": "1.0.13",
-  "description": "ES6 circular deppendency check tool, support js, ts, jsx, tsx and mjs files",
+  "description": "ES6 circular dependency check tool, support js, ts, jsx, tsx and mjs files",
   "main": "./lib/api.js",
   "bin": {
     "iscan": "lib/cli.js"
+  },
+  "dependencies": {
+    "@newdash/newdash": "^5.11.0",
+    "cli": "^1.0.1",
+    "colors": "^1.4.0",
+    "find-package-json": "^1.2.0",
+    "glob": "^7.1.6",
+    "graphlib": "^2.1.8",
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "@types/cli": "^0.11.19",
     "@types/glob": "^5.0.35",
     "@types/graphlib": "^2.1.4",
-    "@types/jest": "^20.0.7",
-    "@types/lodash": "^4.14.102",
+    "@types/jest": "^26.0.4",
     "@types/node": "^8.0.25",
-    "@types/uuid": "^3.4.3",
-    "jest": "^25",
+    "@types/uuid": "^8.0.0",
+    "jest": "^26.1.0",
     "pre-commit": "^1.2.2",
-    "rimraf": "^2.6.1",
-    "standard-version": "^8.0.1",
-    "ts-jest": "^25",
-    "ts-loader": "^2.3.3",
-    "tslint": "^5.6.0",
-    "tslint-loader": "^3.5.3",
-    "typescript": "^3"
+    "rimraf": "^3.0.2",
+    "standard-version": "^8.0.2",
+    "ts-jest": "^26.1.2",
+    "ts-loader": "^8.0.1",
+    "tslint": "^6.1.2",
+    "tslint-loader": "^3.5.4",
+    "typescript": "^3.9.6"
   },
   "typings": "lib/index.d.ts",
   "scripts": {
@@ -34,15 +42,6 @@
     "coverage:watch": "npm run coverage -- --watch",
     "release": "standard-version && git push --follow-tags origin master",
     "prepare": "npm run build && npm test"
-  },
-  "dependencies": {
-    "cli": "^1.0.1",
-    "colors": "^1.4.0",
-    "find-package-json": "^1.2.0",
-    "glob": "^7.1.6",
-    "graphlib": "^2.1.8",
-    "lodash": "^4.17.15",
-    "uuid": "^3.4.0"
   },
   "jest": {
     "transform": {

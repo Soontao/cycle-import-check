@@ -1,7 +1,8 @@
 import { Extension, ScanResult, ReportVO, PackageJson, FileImportDescription } from "./type";
 import { sync } from "glob";
 import { join as pathJoin, dirname, join, normalize, relative } from "path";
-import { join as arrayJoin, map, isArray, isString, concat, includes, filter, keys } from "lodash";
+import { join as arrayJoin, map, isArray, isString, concat, filter, keys } from "@newdash/newdash";
+import { includes } from "@newdash/newdash/includes"
 import { readFileSync, writeFileSync } from "fs";
 import { cwd } from "process";
 import { tmpdir, platform } from "os";
@@ -44,14 +45,15 @@ export const findProjectPackageJson = (absPath: string): PackageJson => {
 }
 
 export const filterNodeDependenciesImport = (descriptions: FileImportDescription[], dependencies: string[]) => {
+  // @ts-ignore
   return filter(descriptions, i => !includes(dependencies, i.importFile))
 }
 
 /**
  * list all acceptable files in a specific directory
- * 
- * @param dir 
- * @param ext 
+ *
+ * @param dir
+ * @param ext
  */
 export const listAllFile = (dir: string, ext: Extension[] = []) => {
   return sync(pathJoin(dir, `./**/*.{${arrayJoin(ext, ",")}}`), {
@@ -64,8 +66,8 @@ export const listAllFile = (dir: string, ext: Extension[] = []) => {
 
 /**
  * read file content
- * 
- * @param absolutePath 
+ *
+ * @param absolutePath
  */
 export const readFile = (absolutePath: string) => {
   return readFileSync(absolutePath, { encoding: "utf8" })
@@ -73,9 +75,9 @@ export const readFile = (absolutePath: string) => {
 
 /**
  * will throw error if file not exist
- * 
- * @param fromFileAbsolutePath 
- * @param importFileRelativePath 
+ *
+ * @param fromFileAbsolutePath
+ * @param importFileRelativePath
  */
 export const resolveFilePath = (fromFileAbsolutePath: string, importFileRelativePath: string) => {
   const dir = dirname(fromFileAbsolutePath);
@@ -90,8 +92,8 @@ export const resolveFilePath = (fromFileAbsolutePath: string, importFileRelative
 
 /**
  * map absolute path to relative path
- * 
- * @param pathes 
+ *
+ * @param pathes
  */
 export const mapAbsPathesToRelPathes = (pathes: string | string[]): string | string[] => {
   if (isString(pathes)) {

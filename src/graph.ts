@@ -1,10 +1,10 @@
 import { Graph, alg } from "graphlib";
-import { forEach } from "lodash";
+import { forEach } from "@newdash/newdash";
 import { FileImportDescription } from "./type";
 
 /**
  * calculate cycle import file
- * 
+ *
  * @param fileAbsPathes files absolutely path
  * @param imports each file's import
  */

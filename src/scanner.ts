@@ -1,13 +1,13 @@
 import { listAllFile, readFile, allDependencies, filterNodeDependenciesImport } from "./file";
-import { map, reduce, concat } from "lodash";
+import { map, reduce, concat } from "@newdash/newdash";
 import { findFileDependencies } from "./processor";
 import { calculateCycleImport } from "./graph";
 import { ScanResult } from "./type";
 
 /**
  * scan a directory circular dependecy status
- * 
- * @param directory 
+ *
+ * @param directory
  */
 export const scanDirectoryWithResult = (directory: string): ScanResult => {
   const nodeDependencies = allDependencies(directory)
