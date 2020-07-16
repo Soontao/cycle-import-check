@@ -1,6 +1,6 @@
 name: Package Release
 
-on: 
+on:
     push:
         tags:
             - '*'
@@ -14,16 +14,16 @@ jobs:
     - name: Use Node.js 10.x
       uses: actions/setup-node@v1
       with:
-        node-version: 10.x
+        node-version: 14.x
         registry-url: https://registry.npmjs.org/
-    
+
     - name: npm test
       run: |
         npm ci
         npm test
       env:
         CI: true
-    
+
     - name: npm auth & publish
       run: npm run build && npm publish
       env:
