@@ -1,4 +1,4 @@
-import { reduce, concat } from "@newdash/newdash";
+import { reduce, concat, flatten } from "@newdash/newdash";
 import { resolveFilePath } from "./file";
 import { FileImportDescription } from "./type";
 
@@ -9,10 +9,12 @@ import { FileImportDescription } from "./type";
  * @param fileCodeString
  */
 export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
-  return concat(
-    findImportDependencies(fileAbsolutePath, fileCodeString),
-    findExportDependencies(fileAbsolutePath, fileCodeString),
-    findRequireDependencies(fileAbsolutePath, fileCodeString),
+  return flatten(
+    concat(
+      findImportDependencies(fileAbsolutePath, fileCodeString),
+      findExportDependencies(fileAbsolutePath, fileCodeString),
+      findRequireDependencies(fileAbsolutePath, fileCodeString),
+    )
   )
 }
 
@@ -66,7 +68,7 @@ export const findImportDependencies = (fileAbsolutePath: string, fileCodeString:
         return pre;
       }
     }, [])
-    result = concat(result, imports)
+    result = flatten(concat(result, imports))
   }
   return result;
 }
@@ -96,7 +98,7 @@ export const findExportDependencies = (fileAbsolutePath: string, fileCodeString:
         return pre;
       }
     }, [])
-    result = concat(result, exportsLines)
+    result = flatten(concat(result, exportsLines))
   }
   return result;
 }

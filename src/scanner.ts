@@ -11,26 +11,31 @@ import { ScanResult } from "./type";
  */
 export const scanDirectoryWithResult = (directory: string): ScanResult => {
   const nodeDependencies = allDependencies(directory)
-  const filepathes = listAllFile(directory, ["js", "jsx", "ts", "tsx", "mjs"])
-  const filesContents = map(filepathes, filepath => ({ filepath, content: readFile(filepath) }))
+  const filePath = listAllFile(directory, ["js", "jsx", "ts", "tsx", "mjs"])
+  const filesContents = map(filePath, filepath => ({ filepath, content: readFile(filepath) }))
   const filteredImports = reduce(
     filesContents,
-    (pre, file) => concat(pre, filterNodeDependenciesImport(findFileDependencies(file.filepath, file.content), nodeDependencies)),
+    (pre, file) => concat(pre,
+      filterNodeDependenciesImport(
+        findFileDependencies(file.filepath, file.content),
+        nodeDependencies
+      )
+    ),
     []
   )
-  const result = calculateCycleImport(filepathes, filteredImports)
+  const result = calculateCycleImport(filePath, filteredImports)
   if (result && result.length > 0) {
     return {
       haveCycle: true,
       cyclies: result,
-      nodes: filepathes,
+      nodes: filePath,
       imports: filteredImports,
     }
   } else {
     return {
       haveCycle: false,
       cyclies: [],
-      nodes: filepathes,
+      nodes: filePath,
       imports: filteredImports,
     }
   }
