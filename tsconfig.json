@@ -27,7 +27,7 @@
   },
   "files": [
     "src/cli.ts",
-    "src/api.ts"
+    "src/index.ts"
   ],
   "exclude": [
     "node_modules"

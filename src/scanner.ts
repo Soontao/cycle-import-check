@@ -5,9 +5,9 @@ import { calculateCycleImport } from "./graph";
 import { ScanResult } from "./type";
 
 /**
- * scan a directory circular dependecy status
+ * scan a directory circular dependency status
  *
- * @param directory
+ * @param directory please use the absolute path
  */
 export const scanDirectoryWithResult = (directory: string): ScanResult => {
   const nodeDependencies = allDependencies(directory)
