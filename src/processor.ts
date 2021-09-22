@@ -11,54 +11,19 @@ import traverse from "@babel/traverse";
  */
 export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: string) => {
   const result: FileImportDescription[] = []
-  const ast = parse(fileCodeString, {
-    sourceType: "unambiguous"
-  })
-  traverse(ast, {
-    ImportDeclaration: (p) => {
-      const {node} = p;
-      if (node.source) {
-        const sourceFile = resolveFilePath(fileAbsolutePath, node.source.value)
-        if (sourceFile) {
-          result.push({
-            fromFile: fileAbsolutePath,
-            importFile: sourceFile,
-            code: fileCodeString.slice(node.start, node.end)
-          })
-        }
-      }
-    },
-    ExportNamedDeclaration: (p) => {
-      const {node} = p;
-      if (node.source) {
-        const sourceFile = resolveFilePath(fileAbsolutePath, node.source.value)
-        if (sourceFile) {
-          result.push({
-            fromFile: fileAbsolutePath,
-            importFile: sourceFile,
-            code: fileCodeString.slice(node.start, node.end)
-          })
-        }
-      }
-    },
-    ExportAllDeclaration: (p) => {
-      const {node} = p;
-      if (node.source) {
-        const sourceFile = resolveFilePath(fileAbsolutePath, node.source.value)
-        if (sourceFile) {
-          result.push({
-            fromFile: fileAbsolutePath,
-            importFile: sourceFile,
-            code: fileCodeString.slice(node.start, node.end)
-          })
-        }
-      }
-    },
-    CallExpression: (p) => {
-      const {node} = p;
-      if (node.callee.type === "Identifier" && node.callee.name === "require") {
-        if (node.arguments.length >= 1 && node.arguments[0].type === "StringLiteral") {
-          const sourceFile = resolveFilePath(fileAbsolutePath, node.arguments[0].value)
+  try {
+    const ast = parse(fileCodeString, {
+      sourceType: "unambiguous",
+      plugins: [
+        "typescript",
+        "jsx"
+      ]
+    })
+    traverse(ast, {
+      ImportDeclaration: (p) => {
+        const {node} = p;
+        if (node.source) {
+          const sourceFile = resolveFilePath(fileAbsolutePath, node.source.value)
           if (sourceFile) {
             result.push({
               fromFile: fileAbsolutePath,
@@ -67,9 +32,53 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
             })
           }
         }
+      },
+      ExportNamedDeclaration: (p) => {
+        const {node} = p;
+        if (node.source) {
+          const sourceFile = resolveFilePath(fileAbsolutePath, node.source.value)
+          if (sourceFile) {
+            result.push({
+              fromFile: fileAbsolutePath,
+              importFile: sourceFile,
+              code: fileCodeString.slice(node.start, node.end)
+            })
+          }
+        }
+      },
+      ExportAllDeclaration: (p) => {
+        const {node} = p;
+        if (node.source) {
+          const sourceFile = resolveFilePath(fileAbsolutePath, node.source.value)
+          if (sourceFile) {
+            result.push({
+              fromFile: fileAbsolutePath,
+              importFile: sourceFile,
+              code: fileCodeString.slice(node.start, node.end)
+            })
+          }
+        }
+      },
+      CallExpression: (p) => {
+        const {node} = p;
+        if (node.callee.type === "Identifier" && node.callee.name === "require") {
+          if (node.arguments.length >= 1 && node.arguments[0].type === "StringLiteral") {
+            const sourceFile = resolveFilePath(fileAbsolutePath, node.arguments[0].value)
+            if (sourceFile) {
+              result.push({
+                fromFile: fileAbsolutePath,
+                importFile: sourceFile,
+                code: fileCodeString.slice(node.start, node.end)
+              })
+            }
+          }
+        }
       }
-    }
-  });
+    });
+  } catch (error) {
+    console.log("Error while parsing", fileAbsolutePath);
+    throw error;
+  }
 
   return result;
 }
