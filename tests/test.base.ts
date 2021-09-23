@@ -3,7 +3,7 @@ import { FileImportDescription } from "../src/type";
 
 export const cwd: string = require("process").cwd();
 
-export const testfile1RelativePath = normalize("tests/testproject/d1/testfile.js")
+export const testfile1RelativePath = normalize("tests/testproject/d1/testfile.ts")
 export const testfile2RelativePath = normalize("tests/testproject/d2/testfile2.js")
 export const testfile3RelativePath = normalize("tests/testproject/d2/d3/testfile3.js")
 export const testfile4RelativePath = normalize("tests/testproject/d2/d3/testfile4.js")

@@ -14,7 +14,7 @@ export interface PackageJson {
 export type Extension = "js" | "ts" | "tsx" | "jsx" | "mjs"
 
 /**
- * circular dependent files
+ * circular dependent files, each item will be a absolute file path
  */
 export type Cycle = string[];
 
@@ -44,7 +44,7 @@ export interface ScanResult {
    * wether these files have cycle dependency
    */
   haveCycle: boolean;
-  cyclies?: Cycle[];
+  cycleList?: Cycle[];
   nodes?: string[];
   imports?: FileImportDescription[];
 }
@@ -54,11 +54,9 @@ export interface ScanResult {
  */
 export interface ReportVO {
   /**
-   * scnaed files
+   * scanned files
    */
-  nodes: {
-    name: string
-  }[];
+  nodes: { name: string  }[];
   /**
    * files' deps
    */

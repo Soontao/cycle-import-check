@@ -1,6 +1,6 @@
 import { resolveFilePath } from "./file";
 import { FileImportDescription } from "./type";
-import {parse} from "@babel/parser";
+import { parse } from "@babel/parser";
 import traverse from "@babel/traverse";
 
 /**
@@ -21,7 +21,7 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
     })
     traverse(ast, {
       ImportDeclaration: (p) => {
-        const {node} = p;
+        const { node } = p;
         if (node.source) {
           const sourceFile = resolveFilePath(fileAbsolutePath, node.source.value)
           if (sourceFile) {
@@ -34,7 +34,7 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
         }
       },
       ExportNamedDeclaration: (p) => {
-        const {node} = p;
+        const { node } = p;
         if (node.source) {
           const sourceFile = resolveFilePath(fileAbsolutePath, node.source.value)
           if (sourceFile) {
@@ -47,7 +47,7 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
         }
       },
       ExportAllDeclaration: (p) => {
-        const {node} = p;
+        const { node } = p;
         if (node.source) {
           const sourceFile = resolveFilePath(fileAbsolutePath, node.source.value)
           if (sourceFile) {
@@ -60,8 +60,8 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
         }
       },
       CallExpression: (p) => {
-        const {node} = p;
-        if (node.callee.type === "Identifier" && node.callee.name === "require") {
+        const { node } = p;
+        if (node.callee.type === "Identifier" && (node.callee.name === "require" || node.callee.name === "import")) {
           if (node.arguments.length >= 1 && node.arguments[0].type === "StringLiteral") {
             const sourceFile = resolveFilePath(fileAbsolutePath, node.arguments[0].value)
             if (sourceFile) {

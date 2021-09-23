@@ -27,14 +27,14 @@ export const scanDirectoryWithResult = (directory: string): ScanResult => {
   if (result && result.length > 0) {
     return {
       haveCycle: true,
-      cyclies: result,
+      cycleList: result,
       nodes: filePath,
       imports: filteredImports,
     }
   } else {
     return {
       haveCycle: false,
-      cyclies: [],
+      cycleList: [],
       nodes: filePath,
       imports: filteredImports,
     }

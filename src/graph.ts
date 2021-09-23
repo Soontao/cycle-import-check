@@ -5,12 +5,12 @@ import { FileImportDescription } from "./type";
 /**
  * calculate cycle import file
  *
- * @param fileAbsPathes files absolutely path
+ * @param fileAbsPathList files absolutely path
  * @param imports each file's import
  */
-export const calculateCycleImport = (fileAbsPathes: string[], imports: FileImportDescription[]) => {
+export const calculateCycleImport = (fileAbsPathList: string[], imports: FileImportDescription[]) => {
   const new_graph = new Graph({ directed: true })
-  new_graph.setNodes(fileAbsPathes)
+  new_graph.setNodes(fileAbsPathList)
   forEach(imports, i => new_graph.setEdge(i.fromFile, i.importFile))
   return alg.findCycles(new_graph)
 }

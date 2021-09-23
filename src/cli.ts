@@ -31,7 +31,7 @@ try {
   const result = scanDirectoryWithResult(directory)
   if (result.haveCycle) {
     error(`Circular dependency existed in ${directory}`.red)
-    forEach(result.cyclies, (cycle, index) => {
+    forEach(result.cycleList, (cycle, index) => {
       error(`\ncycle ${index + 1}, size (${cycle.length}):${cycle.length === 1 ? " this file import itself".grey : " these files circular import each other".cyan}\n`)
       // @ts-ignore
       forEach(mapAbsPathesToRelPathes(cycle), c => error(`  ${c}`.red))

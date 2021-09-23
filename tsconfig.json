@@ -9,7 +9,8 @@
       "dom"
     ],
     "module": "commonjs",
-    "target": "es5",
+    "target": "ES2015",
+    "sourceMap": true,
     "moduleResolution": "node",
     "charset": "utf-8",
     "emitDecoratorMetadata": true,
