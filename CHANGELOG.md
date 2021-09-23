@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/Soontao/cycle-import-check/compare/v1.0.17...v1.1.0) (2021-09-23)
+
+
+### Features
+
+* refactor ut ([016d2ef](https://github.com/Soontao/cycle-import-check/commit/016d2ef3d286ba6e09dd89483331157ed9980ce8))
+* support import func ([f295b9b](https://github.com/Soontao/cycle-import-check/commit/f295b9b7f837ca21a6a5fc0f1eaf9d75f6044ca2))
+
 ### [1.0.17](https://github.com/Soontao/cycle-import-check/compare/v1.0.16...v1.0.17) (2021-08-13)
 
 ### [1.0.16](https://github.com/Soontao/cycle-import-check/compare/v1.0.15...v1.0.16) (2021-03-18)
