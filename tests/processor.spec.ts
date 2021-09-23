@@ -1,4 +1,3 @@
-import 'jest'
 import { testfile2AbsPath, testfile6AbsPath, testfile3AbsPath } from "./test.base";
 import { findFileDependencies } from "../src/processor";
 import { readFileSync } from "fs";

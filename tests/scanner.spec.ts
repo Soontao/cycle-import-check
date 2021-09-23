@@ -1,4 +1,3 @@
-import "jest"
 import { scanDirectoryWithResult } from "../src/scanner";
 import { join } from "path";
 

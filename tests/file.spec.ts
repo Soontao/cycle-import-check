@@ -1,5 +1,4 @@
 import { listAllFile, resolveFilePath, mapAbsPathesToRelPathes, mapScanResultToReportVO } from "../src/file";
-import 'jest'
 import { testfile2AbsPath, testfile5AbsPath, fileAbsList, fileRelativeList } from "./test.base";
 import { scanDirectoryWithResult } from "../src/scanner";
 import { join } from "path";
