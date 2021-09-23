@@ -61,9 +61,13 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
       },
       CallExpression: (p) => {
         const { node } = p;
-        if (node.callee.type === "Identifier" && (node.callee.name === "require" || node.callee.name === "import")) {
-          if (node.arguments.length >= 1 && node.arguments[0].type === "StringLiteral") {
-            const sourceFile = resolveFilePath(fileAbsolutePath, node.arguments[0].value)
+        if ((
+          node.callee?.type === "Identifier" && node.callee.name === "require" ||
+          node.callee?.type === "Import"
+        )) {
+          if (node.arguments?.length >= 1 && node?.arguments[0].type === "StringLiteral") {
+            const importRelPath = node.arguments[0].value;
+            const sourceFile = resolveFilePath(fileAbsolutePath, importRelPath)
             if (sourceFile) {
               result.push({
                 fromFile: fileAbsolutePath,

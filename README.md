@@ -7,7 +7,7 @@
 
 ES6 circular import check tool, support `js`, `ts`, `jsx`, `tsx` and `mjs` files, and will ignore all `node_modules` files.
 
-Support `import`, `export` keywords and `require()` function now
+Support `import`, `export` keywords and `require()`, `import()` function now
 
 ## Why do we need this tool ?
 
@@ -109,3 +109,7 @@ or
 Congratulation! Not found circular dependency in tests/testproject2
 
 ```
+
+## [CHANGELOG](./CHANGELOG.md)
+
+## [LICENSE (MIT)](./LICENSE)

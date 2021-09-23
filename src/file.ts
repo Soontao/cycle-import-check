@@ -3,7 +3,7 @@ import { sync } from "glob";
 import { join as pathJoin, dirname, join, normalize, relative } from "path";
 import { join as arrayJoin, map, isArray, isString, concat, filter, keys } from "@newdash/newdash";
 import { includes } from "@newdash/newdash/includes"
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync, existsSync } from "fs";
 import { cwd } from "process";
 import { tmpdir, platform } from "os";
 import { exec } from "child_process";
@@ -12,6 +12,10 @@ require.extensions[".ts"] = require.extensions[".js"]
 require.extensions[".jsx"] = require.extensions[".js"]
 require.extensions[".tsx"] = require.extensions[".js"]
 require.extensions[".mjs"] = require.extensions[".js"]
+
+const extensions = [
+  "js", "jsx", "ts", "tsx", "mjs"
+]
 
 const { resolve } = require
 
@@ -82,6 +86,7 @@ export const readFile = (absolutePath: string) => {
 export const resolveFilePath = (fromFileAbsolutePath: string, importFileRelativePath: string) => {
   const dir = dirname(fromFileAbsolutePath);
   const targetPath = join(dir, importFileRelativePath);
+  // to do replace nodejs resolve function
   try {
     return normalize(resolve(targetPath));
   } catch (error) {

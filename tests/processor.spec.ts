@@ -39,14 +39,20 @@ describe('processor tests', () => {
   test('should parse minified code correctly', () => {
     // this gave false positives in the old regex / non-babel processor implementation, because it contains a string that looks like export from but isn't
     const Proj6MinifiedAbsPath = join(__dirname, "./testproject6/util/base64.js")
-    const deps = findFileDependencies(Proj6MinifiedAbsPath, readFileSync(Proj6MinifiedAbsPath, {encoding: "utf8"}))
+    const deps = findFileDependencies(Proj6MinifiedAbsPath, readFileSync(Proj6MinifiedAbsPath, { encoding: "utf8" }))
     expect(deps).toHaveLength(0);
+  });
+
+  test('should support import() function', () => {
+    const path = join(__dirname, "./testproject/d5/testfile7.mjs")
+    const deps = findFileDependencies(path, readFileSync(path, { encoding: "utf8" }))
+    expect(deps).toHaveLength(1)
   });
 
   test('should be able to parse a variety of different kinds of imports', () => {
     const Proj7File1AbsPath = join(__dirname, "./testproject7/file1.js")
     const Proj7File2AbsPath = join(__dirname, "./testproject7/file2.js")
-    const deps = findFileDependencies(Proj7File1AbsPath, readFileSync(Proj7File1AbsPath, {encoding: "utf8"}))
+    const deps = findFileDependencies(Proj7File1AbsPath, readFileSync(Proj7File1AbsPath, { encoding: "utf8" }))
     expect(deps).toEqual([
       {
         fromFile: Proj7File1AbsPath,
