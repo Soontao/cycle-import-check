@@ -15,8 +15,7 @@
     "colors": "^1.4.0",
     "find-package-json": "^1.2.0",
     "glob": "^7.2.0",
-    "graphlib": "^2.1.8",
-    "uuid": "^8.3.2"
+    "graphlib": "^2.1.8"
   },
   "devDependencies": {
     "@types/cli": "^0.11.20",
