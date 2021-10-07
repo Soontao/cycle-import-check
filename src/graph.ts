@@ -1,4 +1,4 @@
-import { Graph, alg } from "graphlib";
+import { Graph, alg } from "@newdash/graphlib";
 import { forEach } from "@newdash/newdash";
 import { FileImportDescription } from "./type";
 
