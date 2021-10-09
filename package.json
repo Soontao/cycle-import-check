@@ -10,23 +10,24 @@
   "dependencies": {
     "@babel/parser": "^7.15.8",
     "@babel/traverse": "^7.15.4",
+    "@newdash/graphlib": "^3.0.5",
     "@newdash/newdash": "^5.20.0",
     "cli": "^1.0.1",
     "colors": "^1.4.0",
     "find-package-json": "^1.2.0",
-    "glob": "^7.2.0",
-    "@newdash/graphlib": "^3.0.5"
+    "glob": "^7.2.0"
   },
   "devDependencies": {
     "@types/cli": "^0.11.20",
     "@types/glob": "^7.1.4",
+    "@types/jest": "~27.0.2",
     "@types/node": "^16.10.3",
     "@types/uuid": "^8.3.1",
-    "jest": "^27.0.0",
+    "jest": "~27.0.0",
     "pre-commit": "^1.2.2",
     "rimraf": "^3.0.2",
     "standard-version": "^9.3.1",
-    "ts-jest": "^27.0.5",
+    "ts-jest": "~27.0.5",
     "ts-loader": "^9.2.6",
     "typescript": "^4.4.3"
   },
