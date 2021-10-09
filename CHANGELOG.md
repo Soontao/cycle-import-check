@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/Soontao/cycle-import-check/compare/v1.1.0...v1.2.0) (2021-10-09)
+
+
+### Features
+
+* replace graphlib with private version ([026a2ad](https://github.com/Soontao/cycle-import-check/commit/026a2add2ee1bd421038dc83990c3627111a35e4))
+
+
+### Bug Fixes
+
+* jest issue ([c899ff0](https://github.com/Soontao/cycle-import-check/commit/c899ff0f354d3239273bf94d515157ab9552353a))
+
 ## [1.1.0](https://github.com/Soontao/cycle-import-check/compare/v1.0.17...v1.1.0) (2021-09-23)
 
 
