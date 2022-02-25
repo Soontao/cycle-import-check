@@ -70,18 +70,28 @@ So, this tool appeared, using old (but efficient) graph algorithms to check for 
 
 Just extract shared variables/functions into an independent file: 
 
-![](https://res.cloudinary.com/digf90pwi/image/upload/v1582207712/cycle-import-check_ljrcxg.png)
+`from`
 
-## install
 
-```bash
-npm i -g cycle-import-check
+```mermaid
+graph TD
+    file1.js -->|value1| file2.js
+    file1.js -->|value2| file2.js
 ```
+
+`to`
+
+```mermaid
+graph TD
+    file1.js -->|value1| value.js
+    file2.js -->|value2| value.js
+```
+
 
 ## usage
 
 ```bash
-iscan [a directory path]
+npx cycle-import-check [a directory path]
 ```
 
 ## result
