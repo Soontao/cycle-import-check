@@ -18,7 +18,7 @@ The best practice is **one-way dependency**, and I wrote this tool to ensure no 
 
 Let's look at a circular dependency example: 
 
-file1.js
+> file1.js
 
 ```javascript
 // and console will be first triggered in file2
@@ -35,7 +35,7 @@ setTimeout(() => {
 // file1 is fully executed now
 ```
 
-file2.js
+> file2.js
 
 ```javascript
 import { value1 } from "./file1"; 
@@ -88,13 +88,13 @@ graph TD
 ```
 
 
-## usage
+## Usage
 
 ```bash
 npx cycle-import-check [a directory path]
 ```
 
-## result
+> detected
 
 ```text
 
@@ -109,7 +109,7 @@ cycle 1, size (2):
 
 ```
 
-or
+> normal
 
 ```text
 
