@@ -1,4 +1,4 @@
-# ![](https://res.cloudinary.com/digf90pwi/image/upload/c_scale,w_68/v1529163036/cycle_bscatc.png) JS module circular dependency check tool
+# <img src='https://res.cloudinary.com/digf90pwi/image/upload/c_scale,w_68/v1529163036/cycle_bscatc.png' style="height: 1.5rem"> circular dependency check tool for javascript modules
 
 [![Multi-Version Test](https://github.com/Soontao/cycle-import-check/workflows/Multi-Version%20Test/badge.svg)](https://github.com/Soontao/cycle-import-check/actions?query=workflow%3A%22Multi-Version+Test%22)
 [![codecov](https://codecov.io/gh/Soontao/cycle-import-check/branch/master/graph/badge.svg)](https://codecov.io/gh/Soontao/cycle-import-check)
