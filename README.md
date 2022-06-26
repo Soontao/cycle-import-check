@@ -1,4 +1,4 @@
-# <img src='https://res.cloudinary.com/digf90pwi/image/upload/c_scale,w_68/v1529163036/cycle_bscatc.png' style="height: 1.5rem"> cycle-import-check
+# <img src='https://res.cloudinary.com/digf90pwi/image/upload/c_scale,w_68/v1529163036/cycle_bscatc.png' style="height: 1.2rem"> cycle-import-check
 
 > circular dependency check tool for javascript modules
 
