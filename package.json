@@ -8,8 +8,8 @@
     "cycle-import-scan": "lib/cli.js"
   },
   "dependencies": {
-    "@babel/parser": "^7.18.4",
-    "@babel/traverse": "^7.18.2",
+    "@babel/parser": "^7.18.5",
+    "@babel/traverse": "^7.18.5",
     "@newdash/graphlib": "^3.1.2",
     "@newdash/newdash": "^5.21.2",
     "cli": "^1.0.1",
@@ -21,13 +21,12 @@
     "@types/cli": "^0.11.20",
     "@types/glob": "^7.2.0",
     "@types/jest": "~27.0.3",
-    "@types/node": "^16.11.38",
+    "@types/node": "^16.11.41",
     "@types/uuid": "^8.3.4",
     "jest": "~27.0.6",
-    "pre-commit": "^1.2.2",
     "rimraf": "^3.0.2",
     "ts-jest": "~27.0.7",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.4"
   },
   "typings": "lib/index.d.ts",
   "scripts": {

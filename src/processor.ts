@@ -80,7 +80,7 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
       }
     });
   } catch (error) {
-    console.log("Error while parsing", fileAbsolutePath);
+    console.error("Error while parsing", fileAbsolutePath);
     throw error;
   }
 
