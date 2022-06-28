@@ -16,7 +16,8 @@ export const findFileDependencies = (fileAbsolutePath: string, fileCodeString: s
       sourceType: "unambiguous",
       plugins: [
         "typescript",
-        "jsx"
+        "jsx",
+        "decorators-legacy",
       ]
     })
     traverse(ast, {

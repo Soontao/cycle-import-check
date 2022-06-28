@@ -1,4 +1,4 @@
-import { listAllFile, resolveFilePath, mapAbsPathesToRelPathes, mapScanResultToReportVO } from "../src/file";
+import { listAllFile, resolveFilePath, mapAbsPathsToRelPaths, mapScanResultToReportVO } from "../src/file";
 import { testfile2AbsPath, testfile5AbsPath, fileAbsList, fileRelativeList } from "./test.base";
 import { scanDirectoryWithResult } from "../src/scanner";
 import { join } from "path";
@@ -16,7 +16,7 @@ describe('file list & resolve tests', () => {
   })
 
   test('should file relative convert', () => {
-    const r = mapAbsPathesToRelPathes(fileAbsList)
+    const r = mapAbsPathsToRelPaths(fileAbsList)
     expect(r).toEqual(fileRelativeList)
   })
 

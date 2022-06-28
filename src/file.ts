@@ -98,23 +98,23 @@ export const resolveFilePath = (fromFileAbsolutePath: string, importFileRelative
 /**
  * map absolute path to relative path
  *
- * @param pathes
+ * @param paths
  */
-export const mapAbsPathesToRelPathes = (pathes: string | string[]): string | string[] => {
-  if (isString(pathes)) {
-    return relative(cwd(), pathes)
+export const mapAbsPathsToRelPaths = (paths: string | string[]): string | string[] => {
+  if (isString(paths)) {
+    return relative(cwd(), paths)
   }
-  if (isArray(pathes)) {
-    return map(pathes, p => relative(cwd(), p))
+  if (isArray(paths)) {
+    return map(paths, p => relative(cwd(), p))
   }
 }
 
 export const mapScanResultToReportVO = (result: ScanResult): ReportVO => {
   var rt: ReportVO = { nodes: [], links: [] }
-  rt.nodes = map(result.nodes, n => ({ name: (mapAbsPathesToRelPathes(n) as string) }))
+  rt.nodes = map(result.nodes, n => ({ name: (mapAbsPathsToRelPaths(n) as string) }))
   rt.links = map(result.imports, i => ({
-    source: (mapAbsPathesToRelPathes(i.fromFile) as string),
-    target: (mapAbsPathesToRelPathes(i.importFile) as string),
+    source: (mapAbsPathsToRelPaths(i.fromFile) as string),
+    target: (mapAbsPathsToRelPaths(i.importFile) as string),
     value: i.code,
   }))
   return rt;

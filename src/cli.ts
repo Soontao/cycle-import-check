@@ -6,7 +6,7 @@ import { error, log } from "console";
 import { forEach, isEmpty } from "@newdash/newdash";
 import { scanDirectoryWithResult } from "./scanner";
 import { join, isAbsolute } from "path";
-import { mapAbsPathesToRelPathes } from "./file";
+import { mapAbsPathsToRelPaths } from "./file";
 
 const workspaceDir = cwd();
 
@@ -34,7 +34,7 @@ try {
     forEach(result.cycleList, (cycle, index) => {
       error(`\ncycle ${index + 1}, size (${cycle.length}):${cycle.length === 1 ? " this file import itself".grey : " these files circular import each other".cyan}\n`)
       // @ts-ignore
-      forEach(mapAbsPathesToRelPathes(cycle), c => error(`  ${c}`.red))
+      forEach(mapAbsPathsToRelPaths(cycle), c => error(`  ${c}`.red))
     })
     exit(1)
   } else {
