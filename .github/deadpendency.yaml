@@ -1,0 +1,5 @@
+ignore-failures:
+  javascript:
+    - colors
+    - cli
+    - find-package-json

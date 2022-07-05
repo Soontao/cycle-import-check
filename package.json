@@ -27,14 +27,15 @@
     "@types/node": "16.11.42",
     "@types/uuid": "8.3.4",
     "jest": "28.1.2",
-    "rimraf": "3.0.2",
     "ts-jest": "28.0.5",
     "typescript": "4.7.4"
   },
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
   "typings": "lib/index.d.ts",
   "scripts": {
-    "clean": "rimraf lib",
-    "build": "npm run clean && tsc",
+    "build": "tsc",
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "coverage": "npm test -- --coverage --no-cache",
