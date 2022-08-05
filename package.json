@@ -21,7 +21,7 @@
     "glob": "^8.0.0"
   },
   "devDependencies": {
-    "@types/cli": "0.11.20",
+    "@types/cli": "0.11.21",
     "@types/glob": "7.2.0",
     "@types/jest": "28.1.6",
     "@types/node": "16.11.47",
