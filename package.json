@@ -11,14 +11,14 @@
     "cycle-import-scan": "lib/cli.js"
   },
   "dependencies": {
-    "@babel/parser": "^7.18.5",
-    "@babel/traverse": "^7.18.5",
-    "@newdash/graphlib": "^3.1.2",
-    "@newdash/newdash": "^5.21.2",
+    "@babel/parser": "^7.18.11",
+    "@babel/traverse": "^7.18.11",
+    "@newdash/graphlib": "^3.1.3",
+    "@newdash/newdash": "^5.21.4",
     "cli": "^1.0.1",
     "colors": "^1.4.0",
     "find-package-json": "^1.2.0",
-    "glob": "^8.0.0"
+    "glob": "^8.0.3"
   },
   "devDependencies": {
     "@types/cli": "0.11.21",
@@ -31,7 +31,7 @@
     "typescript": "4.7.4"
   },
   "optionalDependencies": {
-    "fsevents": "*"
+    "fsevents": "^2.3.2"
   },
   "typings": "lib/index.d.ts",
   "scripts": {
