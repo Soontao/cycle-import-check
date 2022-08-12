@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/Soontao/cycle-import-check/compare/v1.2.4...v1.3.0) (2022-08-12)
+
+
+### Features
+
+* auto merge for renovate ([ada672d](https://github.com/Soontao/cycle-import-check/commit/ada672d70b8f0d3c5bbe214bdd185daa7a9cc901))
+
+
+### Bug Fixes
+
+* **deps:** update dependency glob to v8 ([bd25ab9](https://github.com/Soontao/cycle-import-check/commit/bd25ab9c461cf2294caaf7577d0272e371ec4b09))
+
 ### [1.2.4](https://github.com/Soontao/cycle-import-check/compare/v1.2.3...v1.2.4) (2022-06-28)
 
 

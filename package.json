@@ -1,6 +1,6 @@
 {
   "name": "cycle-import-check",
-  "version": "1.2.4",
+  "version": "1.3.0",
   "description": "ES6 circular dependency check tool, support js, ts, jsx, tsx and mjs files",
   "main": "./lib/index.js",
   "engines": {
