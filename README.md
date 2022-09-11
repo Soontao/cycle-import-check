@@ -5,6 +5,7 @@
 [![Multi-Version Test](https://github.com/Soontao/cycle-import-check/workflows/Multi-Version%20Test/badge.svg)](https://github.com/Soontao/cycle-import-check/actions?query=workflow%3A%22Multi-Version+Test%22)
 [![codecov](https://codecov.io/gh/Soontao/cycle-import-check/branch/master/graph/badge.svg)](https://codecov.io/gh/Soontao/cycle-import-check)
 [![npm](https://img.shields.io/npm/v/cycle-import-check)](https://www.npmjs.com/package/cycle-import-check)
+![node-lts](https://img.shields.io/node/v-lts/cycle-import-check)
 
 ES6 circular import check tool, support `js`, `ts`, `jsx`, `tsx` and `mjs` files, and will ignore all `node_modules` files.
 
