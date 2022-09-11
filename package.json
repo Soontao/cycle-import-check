@@ -4,7 +4,7 @@
   "description": "ES6 circular dependency check tool, support js, ts, jsx, tsx and mjs files",
   "main": "./lib/index.js",
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "bin": {
     "iscan": "lib/cli.js",
