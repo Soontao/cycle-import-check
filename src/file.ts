@@ -1,21 +1,15 @@
-import { Extension, ScanResult, ReportVO, PackageJson, FileImportDescription } from "./type";
+import { concat, filter, isArray, isString, join as arrayJoin, keys, map } from "@newdash/newdash";
+import { includes } from "@newdash/newdash/includes";
+import { readFileSync } from "fs";
 import { sync } from "glob";
-import { join as pathJoin, dirname, join, normalize, relative } from "path";
-import { join as arrayJoin, map, isArray, isString, concat, filter, keys } from "@newdash/newdash";
-import { includes } from "@newdash/newdash/includes"
-import { readFileSync, writeFileSync, existsSync } from "fs";
+import { dirname, join, join as pathJoin, normalize, relative } from "path";
 import { cwd } from "process";
-import { tmpdir, platform } from "os";
-import { exec } from "child_process";
+import { Extension, FileImportDescription, PackageJson, ReportVO, ScanResult } from "./type";
 
 require.extensions[".ts"] = require.extensions[".js"]
 require.extensions[".jsx"] = require.extensions[".js"]
 require.extensions[".tsx"] = require.extensions[".js"]
 require.extensions[".mjs"] = require.extensions[".js"]
-
-const extensions = [
-  "js", "jsx", "ts", "tsx", "mjs"
-]
 
 const { resolve } = require
 
@@ -120,12 +114,3 @@ export const mapScanResultToReportVO = (result: ScanResult): ReportVO => {
   return rt;
 }
 
-export const writeFileToTmpDirAndOpenIt = (filename: string, content: string) => {
-  const path = join(tmpdir(), filename);
-  writeFileSync(path, content);
-  if (platform() === "win32") {
-    exec(`start ${path}`)
-  } else {
-    exec(`open ${path}`)
-  }
-}
