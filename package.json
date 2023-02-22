@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/cli": "0.11.21",
-    "@types/glob": "8.0.1",
+    "@types/glob": "8.1.0",
     "@types/jest": "29.4.0",
     "@types/node": "18.14.0",
     "@types/uuid": "9.0.1",
