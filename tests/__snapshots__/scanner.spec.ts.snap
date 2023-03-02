@@ -1,0 +1,293 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scanner related test should support scan all projects: report for project testproject 1`] = `
+{
+  "links": [
+    {
+      "source": "tests/testproject/d1/testfile.ts",
+      "target": "tests/testproject/testfile5.ts",
+      "value": "import "../testfile5.ts"",
+    },
+    {
+      "source": "tests/testproject/d2/d3/d4/testfile6.js",
+      "target": "tests/testproject/d2/d3/testfile4.js",
+      "value": "import "../testfile4"",
+    },
+    {
+      "source": "tests/testproject/d2/d3/testfile3.js",
+      "target": "tests/testproject/d2/d3/testfile4.js",
+      "value": "import "./testfile4"",
+    },
+    {
+      "source": "tests/testproject/d2/d3/testfile3.js",
+      "target": "tests/testproject/d2/d3/d4/testfile6.js",
+      "value": "import "./d4/testfile6"",
+    },
+    {
+      "source": "tests/testproject/d2/d3/testfile4.js",
+      "target": "tests/testproject/testfile5.ts",
+      "value": "import "../../testfile5"",
+    },
+    {
+      "source": "tests/testproject/d2/d3/testfile4.js",
+      "target": "tests/testproject/d2/d3/testfile3.js",
+      "value": "import "./testfile3"",
+    },
+    {
+      "source": "tests/testproject/d2/testfile2.js",
+      "target": "tests/testproject/d2/d3/d4/testfile6.js",
+      "value": "import "./d3/d4/testfile6"",
+    },
+    {
+      "source": "tests/testproject/d2/testfile2.js",
+      "target": "tests/testproject/d2/d3/testfile3.js",
+      "value": "import "./d3/testfile3"",
+    },
+    {
+      "source": "tests/testproject/d5/d6/testfile8.mjs",
+      "target": "tests/testproject/d5/testfile7.mjs",
+      "value": "require("../testfile7.mjs")",
+    },
+    {
+      "source": "tests/testproject/d5/testfile7.mjs",
+      "target": "tests/testproject/d5/d6/testfile8.mjs",
+      "value": "import("./d6/testfile8.mjs")",
+    },
+    {
+      "source": "tests/testproject/testfile5.ts",
+      "target": "tests/testproject/d1/testfile.ts",
+      "value": "export * from "./d1/testfile"",
+    },
+  ],
+  "nodes": [
+    {
+      "name": "tests/testproject/d1/testfile.ts",
+    },
+    {
+      "name": "tests/testproject/d2/d3/d4/testfile6.js",
+    },
+    {
+      "name": "tests/testproject/d2/d3/testfile3.js",
+    },
+    {
+      "name": "tests/testproject/d2/d3/testfile4.js",
+    },
+    {
+      "name": "tests/testproject/d2/testfile2.js",
+    },
+    {
+      "name": "tests/testproject/d5/d6/testfile8.mjs",
+    },
+    {
+      "name": "tests/testproject/d5/testfile7.mjs",
+    },
+    {
+      "name": "tests/testproject/testfile5.ts",
+    },
+  ],
+}
+`;
+
+exports[`scanner related test should support scan all projects: report for project testproject2 1`] = `
+{
+  "links": [
+    {
+      "source": "tests/testproject2/func.js",
+      "target": "tests/testproject2/module1/index.js",
+      "value": "import { some } from "./module1"",
+    },
+    {
+      "source": "tests/testproject2/func.js",
+      "target": "tests/testproject2/module1/part1.js",
+      "value": "import { test } from "./module1/part1";",
+    },
+    {
+      "source": "tests/testproject2/module1/index.js",
+      "target": "tests/testproject2/module1/part1.js",
+      "value": "export * from "./part1"",
+    },
+    {
+      "source": "tests/testproject2/module1/index.js",
+      "target": "tests/testproject2/module1/part2.js",
+      "value": "export * from "./part2"",
+    },
+  ],
+  "nodes": [
+    {
+      "name": "tests/testproject2/func.js",
+    },
+    {
+      "name": "tests/testproject2/module1/index.js",
+    },
+    {
+      "name": "tests/testproject2/module1/part1.js",
+    },
+    {
+      "name": "tests/testproject2/module1/part2.js",
+    },
+  ],
+}
+`;
+
+exports[`scanner related test should support scan all projects: report for project testproject3 1`] = `
+{
+  "links": [
+    {
+      "source": "tests/testproject3/func1.js",
+      "target": "tests/testproject3/func3.js",
+      "value": "export { func3 } from "./func3"",
+    },
+    {
+      "source": "tests/testproject3/func2.js",
+      "target": "tests/testproject3/func1.js",
+      "value": "import { func1 } from "./func1";",
+    },
+    {
+      "source": "tests/testproject3/func3.js",
+      "target": "tests/testproject3/func1.js",
+      "value": "import { func1 } from "./func1";",
+    },
+    {
+      "source": "tests/testproject3/func3.js",
+      "target": "tests/testproject3/func2.js",
+      "value": "import { func2 } from "./func2";",
+    },
+  ],
+  "nodes": [
+    {
+      "name": "tests/testproject3/func1.js",
+    },
+    {
+      "name": "tests/testproject3/func2.js",
+    },
+    {
+      "name": "tests/testproject3/func3.js",
+    },
+  ],
+}
+`;
+
+exports[`scanner related test should support scan all projects: report for project testproject4 1`] = `
+{
+  "links": [
+    {
+      "source": "tests/testproject4/file1.js",
+      "target": "tests/testproject4/file2.js",
+      "value": "import { value2 } from "./file2";",
+    },
+    {
+      "source": "tests/testproject4/file2.js",
+      "target": "tests/testproject4/file1.js",
+      "value": "import { value1 } from "./file1";",
+    },
+  ],
+  "nodes": [
+    {
+      "name": "tests/testproject4/file1.js",
+    },
+    {
+      "name": "tests/testproject4/file2.js",
+    },
+  ],
+}
+`;
+
+exports[`scanner related test should support scan all projects: report for project testproject5 1`] = `
+{
+  "links": [
+    {
+      "source": "tests/testproject5/file1.js",
+      "target": "tests/testproject5/file2.js",
+      "value": "require("./file2.js")",
+    },
+    {
+      "source": "tests/testproject5/file2.js",
+      "target": "tests/testproject5/file1.js",
+      "value": "require("./file1")",
+    },
+  ],
+  "nodes": [
+    {
+      "name": "tests/testproject5/file1.js",
+    },
+    {
+      "name": "tests/testproject5/file2.js",
+    },
+  ],
+}
+`;
+
+exports[`scanner related test should support scan all projects: report for project testproject6 1`] = `
+{
+  "links": [],
+  "nodes": [
+    {
+      "name": "tests/testproject6/util.js",
+    },
+    {
+      "name": "tests/testproject6/util/base64.js",
+    },
+  ],
+}
+`;
+
+exports[`scanner related test should support scan all projects: report for project testproject7 1`] = `
+{
+  "links": [
+    {
+      "source": "tests/testproject7/file1.js",
+      "target": "tests/testproject7/file2.js",
+      "value": "require("file2")",
+    },
+    {
+      "source": "tests/testproject7/file1.js",
+      "target": "tests/testproject7/file2.js",
+      "value": "export * from "./file2"",
+    },
+    {
+      "source": "tests/testproject7/file1.js",
+      "target": "tests/testproject7/file2.js",
+      "value": "export {b} from "./file2"",
+    },
+    {
+      "source": "tests/testproject7/file1.js",
+      "target": "tests/testproject7/file2.js",
+      "value": "import c, {d} from "./file2";",
+    },
+    {
+      "source": "tests/testproject7/file1.js",
+      "target": "tests/testproject7/file2.js",
+      "value": "import {e} from "./file2"",
+    },
+    {
+      "source": "tests/testproject7/file1.js",
+      "target": "tests/testproject7/file2.js",
+      "value": "import * as H from "./file2"",
+    },
+    {
+      "source": "tests/testproject7/file1.js",
+      "target": "tests/testproject7/file2.js",
+      "value": "import j from "./file2"",
+    },
+  ],
+  "nodes": [
+    {
+      "name": "tests/testproject7/file1.js",
+    },
+    {
+      "name": "tests/testproject7/file2.js",
+    },
+  ],
+}
+`;
+
+exports[`scanner related test should support scan all projects: report for project testproject8 1`] = `
+{
+  "links": [],
+  "nodes": [
+    {
+      "name": "tests/testproject8/express.js",
+    },
+  ],
+}
+`;
