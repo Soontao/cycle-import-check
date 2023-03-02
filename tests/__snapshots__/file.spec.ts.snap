@@ -7,6 +7,9 @@ exports[`file list & resolve tests should correctly resolve same name 1`] = `
     {
       "name": "tests/testproject8/express.js",
     },
+    {
+      "name": "tests/testproject8/m2.ts",
+    },
   ],
 }
 `;
