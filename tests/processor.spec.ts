@@ -15,7 +15,7 @@ describe('processor tests', () => {
         importFile: testfile6AbsPath
       },
       {
-        code: 'import "d3/testfile3"',
+        code: 'import "./d3/testfile3"',
         fromFile: testfile2AbsPath,
         importFile: testfile3AbsPath
       }

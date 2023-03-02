@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`file list & resolve tests should correctly resolve same name 1`] = `
+{
+  "links": [],
+  "nodes": [
+    {
+      "name": "tests/testproject8/express.js",
+    },
+  ],
+}
+`;

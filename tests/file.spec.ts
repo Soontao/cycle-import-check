@@ -22,10 +22,12 @@ describe('file list & resolve tests', () => {
 
   test('should map result to report VO', () => {
     const r = mapScanResultToReportVO(scanDirectoryWithResult(join(__dirname, "./testproject2")))
-    expect(r.nodes.length).toEqual(4);
-    expect(r.links.length).toEqual(4);
+    expect(r).toMatchSnapshot()
   })
 
 
-
+  it('should correctly resolve same name', () => {
+    const r = scanDirectoryWithResult(join(__dirname, "./testproject8"))
+    expect(mapScanResultToReportVO(r)).toMatchSnapshot()
+  })
 })
