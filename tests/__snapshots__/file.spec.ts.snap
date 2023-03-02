@@ -10,3 +10,44 @@ exports[`file list & resolve tests should correctly resolve same name 1`] = `
   ],
 }
 `;
+
+exports[`file list & resolve tests should map result to report VO 1`] = `
+{
+  "links": [
+    {
+      "source": "tests/testproject2/func.js",
+      "target": "tests/testproject2/module1/index.js",
+      "value": "import { some } from "./module1"",
+    },
+    {
+      "source": "tests/testproject2/func.js",
+      "target": "tests/testproject2/module1/part1.js",
+      "value": "import { test } from "./module1/part1";",
+    },
+    {
+      "source": "tests/testproject2/module1/index.js",
+      "target": "tests/testproject2/module1/part1.js",
+      "value": "export * from "./part1"",
+    },
+    {
+      "source": "tests/testproject2/module1/index.js",
+      "target": "tests/testproject2/module1/part2.js",
+      "value": "export * from "./part2"",
+    },
+  ],
+  "nodes": [
+    {
+      "name": "tests/testproject2/func.js",
+    },
+    {
+      "name": "tests/testproject2/module1/index.js",
+    },
+    {
+      "name": "tests/testproject2/module1/part1.js",
+    },
+    {
+      "name": "tests/testproject2/module1/part2.js",
+    },
+  ],
+}
+`;
