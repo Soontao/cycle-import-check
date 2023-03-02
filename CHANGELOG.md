@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/Soontao/cycle-import-check/compare/v1.3.2...v1.4.0) (2023-03-02)
+
+
+### Features
+
+* better test assert ([b91d3f8](https://github.com/Soontao/cycle-import-check/commit/b91d3f81fe37746061db8372cfb51e0b735d6f24))
+
+
+### Bug Fixes
+
+* [#126](https://github.com/Soontao/cycle-import-check/issues/126) false positive same name module ([d56bc7d](https://github.com/Soontao/cycle-import-check/commit/d56bc7d52479bfcaaf6afc375ab032744264b34a))
+
 ### [1.3.2](https://github.com/Soontao/cycle-import-check/compare/v1.3.1...v1.3.2) (2022-12-07)
 
 ### [1.3.1](https://github.com/Soontao/cycle-import-check/compare/v1.3.0...v1.3.1) (2022-11-03)
