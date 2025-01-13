@@ -8,6 +8,7 @@
   },
   "bin": {
     "iscan": "lib/cli.js",
+    "cycle-import-check": "lib/cli.js",
     "cycle-import-scan": "lib/cli.js"
   },
   "dependencies": {
