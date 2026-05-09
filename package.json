@@ -26,7 +26,7 @@
     "@types/jest": "30.0.0",
     "@types/node": "24.12.3",
     "@types/uuid": "11.0.0",
-    "jest": "30.4.1",
+    "jest": "30.4.2",
     "ts-jest": "29.4.9",
     "typescript": "6.0.3"
   },
