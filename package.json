@@ -27,7 +27,7 @@
     "@types/node": "24.12.4",
     "@types/uuid": "11.0.0",
     "jest": "30.4.2",
-    "ts-jest": "29.4.9",
+    "ts-jest": "29.4.10",
     "typescript": "6.0.3"
   },
   "optionalDependencies": {
